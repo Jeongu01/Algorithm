@@ -43,10 +43,20 @@ public class OilDrilling {
     };
     System.out.println(Solution.solution(land4));
 
+    int[][] land5 = new int[500][500];
+
+    for (int i = 0; i < 500; i++) {
+      for (int j = 0; j < 500; j++) {
+        land5[i][j] = 1;
+      }
+    }
+    System.out.println(Solution.solution(land5));
+
   }
 
   Map<Integer, Integer> map = new HashMap<>();
   int count = 2;
+
 
   public int solution(int[][] land) {
     int answer = 0;
@@ -69,7 +79,7 @@ public class OilDrilling {
 //      }
 //      System.out.println();
 //    }
-
+//
 //    for (Integer integer : map.keySet()) {
 //      System.out.print("Key : " + integer + ", Value : " + map.get(integer) + " ");
 //    }
@@ -100,6 +110,7 @@ public class OilDrilling {
     } else {    // 방문하지 않은 석유가 있으면
       int value = land[row][col];
       land[row][col] = count;
+      System.out.println("row : " + row + "col : " + col);
       return checkAround(land, row - 1, col) +
           checkAround(land, row, col - 1) +
           checkAround(land, row + 1, col) +
