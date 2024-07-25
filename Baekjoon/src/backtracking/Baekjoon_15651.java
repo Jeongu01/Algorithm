@@ -1,16 +1,16 @@
 package backtracking;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.List;
+import java.io.OutputStreamWriter;
 import java.util.StringTokenizer;
 
 public class Baekjoon_15651 {
 
-  static List<Integer> isVisited = new ArrayList<>();
-
+  static BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+  static StringBuilder sb = new StringBuilder();
   public static void main(String[] args) throws IOException {
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     StringTokenizer st = new StringTokenizer(br.readLine());
@@ -18,21 +18,20 @@ public class Baekjoon_15651 {
     int n = Integer.parseInt(st.nextToken());
     int m = Integer.parseInt(st.nextToken());
 
-    func(n, m);
+    func(n, m, 0);
+    bw.flush();
   }
 
-  public static void func(int n, int m) {
-    if (isVisited.size() == m) {
-      for (Integer integer : isVisited) {
-        System.out.print(integer + " ");
+  public static void func(int n, int m, int count) throws IOException{
+    if (count == m) {
+      bw.write(sb.toString());
+      bw.write("\n");
+    } else {
+      for (int i = 1; i <= n; i++) {
+        sb.append(i).append(" ");
+        func(n, m, count + 1);
+        sb.delete(sb.length() - 2, sb.length());
       }
-      System.out.println();
-      return;
-    }
-    for (int i = 1; i <= n; i++) {
-      isVisited.add(i);
-      func(n, m);
-      isVisited.remove(Integer.valueOf(i));
     }
   }
 
