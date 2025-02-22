@@ -3,7 +3,6 @@ package implementation;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.PriorityQueue;
 import java.util.StringTokenizer;
 
 public class Baekjoon_17143 {
@@ -120,7 +119,7 @@ public class Baekjoon_17143 {
     }
   }
 
-  public static class Shark implements Comparable<Shark>{
+  public static class Shark{
     int r;
     int c;
     int s;
@@ -133,11 +132,6 @@ public class Baekjoon_17143 {
       this.s = s;
       this.d = d;
       this.z = z;
-    }
-
-    @Override
-    public int compareTo(Shark shark) {
-      return shark.r - this.r;
     }
   }
 
