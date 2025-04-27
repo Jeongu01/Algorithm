@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-int arr[500000];
+int arr[500'000];
 
 int main()
 {
@@ -27,7 +27,7 @@ int main()
 		}
 	}
 
-	int ans = INT16_MAX;
+	int ans = INT32_MAX;
 	int sum1 = 0, sum2 = 0;
 	for (int i = 1; i <= index; i++)
 	{
