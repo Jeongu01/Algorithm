@@ -50,7 +50,7 @@ int main()
 		cin >> target;
 		if (m.find(target) != m.end())
 		{
-			cout << cnt << "\n";
+			cout << m[target] << "\n";
 			continue;
 		}
 		len = target.length();
