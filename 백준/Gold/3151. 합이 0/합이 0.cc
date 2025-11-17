@@ -22,8 +22,25 @@ int main()
     {
         for (int j = i + 1; j < N; j++)
         {
+            int lower_idx = 0, upper_idx = 0;
+            int left = j + 1, right = N, mid;
             int trg = -(A[i] + A[j]);
-            ans += upper_bound(A + j + 1, A + N, trg) - lower_bound(A + j + 1, A + N, trg);
+            while (left < right)
+            {
+                mid = (left + right) / 2;
+                if (A[mid] >= trg) right = mid;
+                else left = mid + 1;
+            }
+            lower_idx = left;
+            left = j + 1, right = N;
+            while (left < right)
+            {
+                mid = (left + right) / 2;
+                if (A[mid] > trg) right = mid;
+                else left = mid + 1;
+            }
+            upper_idx = left;
+            ans += upper_idx - lower_idx;
         }
     }
     cout << ans;
